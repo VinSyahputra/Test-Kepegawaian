@@ -15,8 +15,7 @@ return new class extends Migration
     {
         Schema::create('kontraks', function (Blueprint $table) {
             $table->id();
-            $table->date('mulai_kontrak');
-            $table->date('akhir_kontrak');
+            $table->string('jenis_kontrak');
             $table->timestamps();
         });
     }

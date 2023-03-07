@@ -8,7 +8,7 @@
     <title>Dashboard - JTTC</title>
 
     <!-- Favicons -->
-    <link href="img/logo.png" rel="icon">
+    <link href="/img/logo.png" rel="icon">
 
 
     <!-- Google Fonts -->
@@ -18,11 +18,11 @@
         rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -42,10 +42,10 @@
             class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Template Main JS File -->
-    <script src="js/main.js"></script>
+    <script src="/js/main.js"></script>
 
 </body>
 

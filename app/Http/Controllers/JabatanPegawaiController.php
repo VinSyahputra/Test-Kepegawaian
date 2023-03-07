@@ -82,4 +82,10 @@ class JabatanPegawaiController extends Controller
     {
         //
     }
+
+    public function getJabatanData()
+    {
+        $jabatanData = JabatanPegawai::all();
+        return response()->json($jabatanData);
+    }
 }

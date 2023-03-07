@@ -4,8 +4,9 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Models\JabatanPegawai;
+use App\Models\Kontrak;
 use App\Models\Pegawai;
+use App\Models\JabatanPegawai;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -31,5 +32,16 @@ class DatabaseSeeder extends Seeder
         JabatanPegawai::create([
             'nama' => 'Staff',
         ]);
+        Kontrak::create([
+            'jenis_kontrak' => 'Magang',
+        ]);
+        Kontrak::create([
+            'jenis_kontrak' => 'Karyawan',
+        ]);
+        Kontrak::create([
+            'jenis_kontrak' => 'Purna',
+        ]);
+
+        Pegawai::factory(10)->create();
     }
 }

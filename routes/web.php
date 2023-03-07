@@ -1,10 +1,11 @@
 <?php
 
+use App\Models\Pegawai;
+use App\Models\JabatanPegawai;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KontrakController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\JabatanPegawaiController;
-use App\Models\JabatanPegawai;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,7 @@ Route::get('/login', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard.index', [
+        'pegawai' => Pegawai::count(),
         'jabatan' => JabatanPegawai::count(),
     ]);
 });
@@ -33,3 +35,6 @@ Route::get('/dashboard', function () {
 Route::resource('/pegawai', PegawaiController::class);
 Route::resource('/jabatan', JabatanPegawaiController::class);
 Route::resource('/kontrak', KontrakController::class);
+
+Route::get('/getjabatan', [JabatanPegawaiController::class, 'getJabatanData']);
+Route::get('/getkontrak', [KontrakController::class, 'getKontrakData']);

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JabatanPegawai;
+use App\Models\Kontrak;
 use App\Models\Pegawai;
 use Illuminate\Http\Request;
 
@@ -14,7 +16,10 @@ class PegawaiController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.pegawai.index', [
+            // 'data' => Pegawai::with(['jabatanPegawai', 'kontrak'])
+            'data' => Pegawai::paginate(5)
+        ]);
     }
 
     /**
@@ -24,7 +29,7 @@ class PegawaiController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.pegawai.create');
     }
 
     /**
@@ -35,7 +40,18 @@ class PegawaiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nama' => 'required',
+            'username' => 'required|unique:pegawais',
+            'password' => 'required|min:6',
+            'jabatan_pegawais_id' => 'required',
+            'kontraks_id' => 'required',
+        ]);
+
+        $request['password'] = bcrypt($request['password']);
+        Pegawai::create($validated);
+
+        return redirect('/pegawai');
     }
 
     /**
@@ -57,7 +73,11 @@ class PegawaiController extends Controller
      */
     public function edit(Pegawai $pegawai)
     {
-        //
+        return view('dashboard.pegawai.edit', [
+            'pegawai' => $pegawai,
+            'data_kontrak' => Kontrak::all(),
+            'data_pegawai' => JabatanPegawai::all()
+        ]);
     }
 
     /**
@@ -69,7 +89,14 @@ class PegawaiController extends Controller
      */
     public function update(Request $request, Pegawai $pegawai)
     {
-        //
+        $validated = $request->validate([
+            'nama' => 'required',
+            'jabatan_pegawais_id' => 'required',
+            'kontraks_id' => 'required',
+        ]);
+        Pegawai::where('id', $pegawai->id)->update($validated);
+
+        return redirect('/pegawai');
     }
 
     /**
@@ -80,6 +107,7 @@ class PegawaiController extends Controller
      */
     public function destroy(Pegawai $pegawai)
     {
-        //
+        Pegawai::destroy($pegawai->id);
+        return redirect('/pegawai');
     }
 }

@@ -82,4 +82,10 @@ class KontrakController extends Controller
     {
         //
     }
+
+    public function getKontrakData()
+    {
+        $kontrakData = Kontrak::all();
+        return response()->json($kontrakData);
+    }
 }

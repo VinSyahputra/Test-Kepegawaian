@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\JabatanPegawai;
+use App\Models\Kontrak;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -21,7 +23,8 @@ class PegawaiFactory extends Factory
             'nama' => fake()->name(),
             'username' => fake()->name(),
             'password' => bcrypt('123456'), // password
-            'remember_token' => Str::random(10),
+            'jabatan_pegawais_id' => JabatanPegawai::all()->random()->id,
+            'kontraks_id' => Kontrak::all()->random()->id,
         ];
     }
 }

@@ -5,7 +5,7 @@
         <div class="card mb-3 bg-primary" style="width: 15rem;">
             <div class="card-body text-center text-white">
                 <h5 class="card-title text-white m-0">Jumlah Pegawai</h5>
-                <h1 class="card-text "><b>20</b></h1>
+                <h1 class="card-text "><b>{{ $pegawai }}</b></h1>
             </div>
         </div>
         <div class="card mb-3 bg-warning" style="width: 15rem;">
