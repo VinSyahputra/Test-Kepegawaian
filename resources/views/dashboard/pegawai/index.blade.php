@@ -24,8 +24,8 @@
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
                                 <td>{{ $pegawai->nama }}</td>
-                                <td>{{ $pegawai->jabatan_pegawais_id }}</td>
-                                <td>{{ $pegawai->kontraks_id }}</td>
+                                <td>{{ $pegawai->jabatanPegawais->nama }}</td>
+                                <td>{{ $pegawai->kontraks->jenis_kontrak }}</td>
                                 <td>
                                     <a href="/pegawai/{{ $pegawai->id }}/edit" class="btn btn-warning">EDIT</a>
                                     <form action="/pegawai/{{ $pegawai->id }}" method="post" class="d-inline">

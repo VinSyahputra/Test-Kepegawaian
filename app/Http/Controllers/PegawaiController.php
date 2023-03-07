@@ -17,8 +17,8 @@ class PegawaiController extends Controller
     public function index()
     {
         return view('dashboard.pegawai.index', [
-            // 'data' => Pegawai::with(['jabatanPegawai', 'kontrak'])
             'data' => Pegawai::paginate(5)
+            // 'data' => Pegawai::paginate(5)
         ]);
     }
 

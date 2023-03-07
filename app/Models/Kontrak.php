@@ -13,6 +13,6 @@ class Kontrak extends Model
 
     public function pegawai()
     {
-        return $this->hasOne(Pegawai::class);
+        return $this->hasMany(Pegawai::class);
     }
 }

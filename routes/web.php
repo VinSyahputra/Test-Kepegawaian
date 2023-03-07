@@ -29,6 +29,7 @@ Route::get('/dashboard', function () {
     return view('dashboard.index', [
         'pegawai' => Pegawai::count(),
         'jabatan' => JabatanPegawai::count(),
+        'purna' => Pegawai::where('kontraks_id', 3)->count(),
     ]);
 });
 

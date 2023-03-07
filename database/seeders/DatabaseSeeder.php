@@ -42,6 +42,6 @@ class DatabaseSeeder extends Seeder
             'jenis_kontrak' => 'Purna',
         ]);
 
-        Pegawai::factory(10)->create();
+        Pegawai::factory(30)->create();
     }
 }

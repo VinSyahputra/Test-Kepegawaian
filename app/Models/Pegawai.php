@@ -15,13 +15,13 @@ class Pegawai extends Model
     protected $fillable = ['nama', 'username', 'password', 'jabatan_pegawais_id', 'kontraks_id'];
 
 
-    public function jabatanPegawai()
+    public function jabatanPegawais()
     {
         return $this->belongsTo(JabatanPegawai::class);
     }
 
-    public function kontrak()
+    public function kontraks()
     {
-        return $this->hasOne(Kontrak::class);
+        return $this->belongsTo(Kontrak::class);
     }
 }

@@ -17,7 +17,7 @@
         <div class="card mb-3 bg-success" style="width: 15rem;">
             <div class="card-body text-center text-white">
                 <h5 class="card-title text-white m-0">Jumlah Purna</h5>
-                <h1 class="card-text "><b>20</b></h1>
+                <h1 class="card-text "><b>{{ $purna }}</b></h1>
             </div>
         </div>
     </div>
