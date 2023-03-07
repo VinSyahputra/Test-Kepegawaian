@@ -14,7 +14,9 @@ class KontrakController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.kontrak.index', [
+            'data' => Kontrak::paginate(5)
+        ]);
     }
 
     /**
@@ -24,7 +26,7 @@ class KontrakController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.kontrak.create');
     }
 
     /**
@@ -35,7 +37,13 @@ class KontrakController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'jenis_kontrak' => 'required',
+        ]);
+
+        Kontrak::create($validated);
+
+        return redirect('/kontrak');
     }
 
     /**
@@ -57,7 +65,9 @@ class KontrakController extends Controller
      */
     public function edit(Kontrak $kontrak)
     {
-        //
+        return view('dashboard.kontrak.edit', [
+            'data' => $kontrak,
+        ]);
     }
 
     /**
@@ -69,7 +79,13 @@ class KontrakController extends Controller
      */
     public function update(Request $request, Kontrak $kontrak)
     {
-        //
+        $validated = $request->validate([
+            'jenis_kontrak' => 'required',
+        ]);
+
+        Kontrak::where('id', $kontrak->id)->update($validated);
+
+        return redirect('/kontrak');
     }
 
     /**
@@ -80,7 +96,8 @@ class KontrakController extends Controller
      */
     public function destroy(Kontrak $kontrak)
     {
-        //
+        Kontrak::destroy($kontrak->id);
+        return redirect('/kontrak');
     }
 
     public function getKontrakData()

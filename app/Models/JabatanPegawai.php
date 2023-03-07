@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class JabatanPegawai extends Model
 {
     use HasFactory;
-    protected $guarded = [];
+    protected $fillable = ['nama'];
 
     public function pegawai()
     {

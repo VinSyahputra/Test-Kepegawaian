@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Kontrak extends Model
 {
     use HasFactory;
+    protected $fillable = ['jenis_kontrak'];
 
     public function pegawai()
     {

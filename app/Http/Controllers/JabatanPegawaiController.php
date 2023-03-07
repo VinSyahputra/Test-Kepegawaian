@@ -14,7 +14,9 @@ class JabatanPegawaiController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.jabatan.index', [
+            'data' => JabatanPegawai::paginate(5)
+        ]);
     }
 
     /**
@@ -24,7 +26,7 @@ class JabatanPegawaiController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.jabatan.create');
     }
 
     /**
@@ -35,7 +37,13 @@ class JabatanPegawaiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nama' => 'required',
+        ]);
+
+        JabatanPegawai::create($validated);
+
+        return redirect('/jabatan');
     }
 
     /**
@@ -55,9 +63,11 @@ class JabatanPegawaiController extends Controller
      * @param  \App\Models\JabatanPegawai  $jabatanPegawai
      * @return \Illuminate\Http\Response
      */
-    public function edit(JabatanPegawai $jabatanPegawai)
+    public function edit(JabatanPegawai $jabatan)
     {
-        //
+        return view('dashboard.jabatan.edit', [
+            'data' => $jabatan,
+        ]);
     }
 
     /**
@@ -67,9 +77,15 @@ class JabatanPegawaiController extends Controller
      * @param  \App\Models\JabatanPegawai  $jabatanPegawai
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, JabatanPegawai $jabatanPegawai)
+    public function update(Request $request, JabatanPegawai $jabatan)
     {
-        //
+        $validated = $request->validate([
+            'nama' => 'required',
+        ]);
+
+        JabatanPegawai::where('id', $jabatan->id)->update($validated);
+
+        return redirect('/jabatan');
     }
 
     /**
@@ -78,9 +94,10 @@ class JabatanPegawaiController extends Controller
      * @param  \App\Models\JabatanPegawai  $jabatanPegawai
      * @return \Illuminate\Http\Response
      */
-    public function destroy(JabatanPegawai $jabatanPegawai)
+    public function destroy(JabatanPegawai $jabatan)
     {
-        //
+        JabatanPegawai::destroy($jabatan->id);
+        return redirect('/jabatan');
     }
 
     public function getJabatanData()

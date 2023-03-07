@@ -28,15 +28,6 @@
             </a>
         </li>
 
-        <li class="nav-heading">MASTER</li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="/users">
-                <i class="bi bi-gear"></i>
-                <span>Edit Data Pegawai</span>
-            </a>
-        </li><!-- End Blank Page Nav -->
-
     </ul>
 
 </aside><!-- End Sidebar-->
